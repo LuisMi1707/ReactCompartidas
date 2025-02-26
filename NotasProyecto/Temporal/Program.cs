@@ -1,0 +1,17 @@
+﻿using reactBackend.Repository;
+using System.ComponentModel.DataAnnotations;
+
+AlumnoDAO alumnoDAO = new AlumnoDAO();
+#region SelectAll
+var alumno = alumnoDAO.SelectAll();
+
+foreach (var item in alumno)
+{
+    Console.WriteLine(item.Nombre);
+}
+#endregion
+Console.WriteLine(" ");
+#region SelectByID
+var selectById = alumnoDAO.GetById(5);
+Console.WriteLine(selectById?.Nombre);
+#endregion
