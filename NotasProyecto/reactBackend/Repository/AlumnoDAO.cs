@@ -1,4 +1,5 @@
-﻿using reactBackend.Context;
+﻿using Microsoft.EntityFrameworkCore.Query;
+using reactBackend.Context;
 using reactBackend.Models;
 using System;
 using System.Collections.Generic;
@@ -90,5 +91,48 @@ namespace reactBackend.Repository
             }
         }
         #endregion
+
+        #region DeleteAlumno
+        public bool deleteAlumno(int id)
+        {
+            var borrar = GetById(id);
+            try
+            {
+                if (borrar != null)
+                {
+                    return false;
+                }
+                else
+                {
+                    contexto.Alumnos.Remove(borrar);
+                    contexto.SaveChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine (e.InnerException);
+                return false;
+            }
+        }
+        #endregion
+
+        #region left join
+        public List<AlumnoAsignatura> SelectAlumAsig()
+        {
+            var consulta = from a in contexto.Alumnos
+                join m in contexto.Matriculas on a.Id equals m.AlumnoId
+                join asig in contexto.Asignaturas on m.AsignaturaId equals asig.Id
+                  select new AlumnoAsignatura
+                  {
+                      nombreAlumno = a.Nombre,
+                        nombreAsignatura = asig.Nombre
+                  };
+            return consulta.ToList();
+        }
+        #endregion
+
     }
+
 }
