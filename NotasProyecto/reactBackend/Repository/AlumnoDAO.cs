@@ -118,7 +118,7 @@ namespace reactBackend.Repository
         }
         #endregion
 
-        #region left join
+        #region leftJoin
         public List<AlumnoAsignatura> SelectAlumAsig()
         {
             var consulta = from a in contexto.Alumnos

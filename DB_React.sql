@@ -46,7 +46,7 @@ CREATE TABLE  calificacion (
 	FOREIGN KEY (matriculaId) REFERENCES matricula(id)
 
 );
-
+GO 
 USE RegistroAlumno
 
 INSERT INTO [dbo].[alumno] ([dni],[nombre],[direccion],[edad],[email]) VALUES('4570012T','Miguel Alba Muñoz','C/Catadores 6',21,'miguel@gmail.com');
@@ -95,3 +95,9 @@ SELECT * FROM asignatura;
 SELECT * FROM calificacion;
 SELECT * FROM matricula;
 SELECT * FROM profesor;
+
+GO
+--GUIA 5: Entity F. Multitabla.
+select a.nombre, asig.nombre from alumno a
+left join matricula m on m.alumnoId = a.id
+left join asignatura asig on asig.id = m.asignaturaId
