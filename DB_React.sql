@@ -97,6 +97,7 @@ SELECT * FROM matricula;
 SELECT * FROM profesor;
 
 GO
+
 --GUIA 5: Entity F. Multitabla.
 select a.nombre, asig.nombre from alumno a
 left join matricula m on m.alumnoId = a.id
@@ -109,7 +110,7 @@ Select * from alumno a
 left join matricula m on a.id = m.alumnoId
 left join asignatura asig on asig.id = m.asignaturaId
 Where asig.profesor = 'ivan'
-go 
+GO
 
 --Ahora filtramos los datos de respuesta. 
 Select 
@@ -123,3 +124,4 @@ from alumno a
 left join matricula m on a.id = m.alumnoId
 left join asignatura asig on asig.id = m.asignaturaId
 Where asig.profesor = 'ivan'
+GO

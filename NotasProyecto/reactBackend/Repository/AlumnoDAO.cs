@@ -69,7 +69,7 @@ namespace reactBackend.Repository
             try
             {
                 var alumnoUpdate = GetById(id);
-                if (alumnoUpdate != null)
+                if (alumnoUpdate == null)
                 {
                     Console.WriteLine("Alumno es null");
                     return false;
@@ -84,9 +84,9 @@ namespace reactBackend.Repository
                 contexto.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine(ex.InnerException); 
+                Console.WriteLine(e.InnerException); 
                 return false;
             }
         }
