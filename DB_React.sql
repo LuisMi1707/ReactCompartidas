@@ -125,3 +125,14 @@ left join matricula m on a.id = m.alumnoId
 left join asignatura asig on asig.id = m.asignaturaId
 Where asig.profesor = 'ivan'
 GO
+
+-- Guia 10 : Crear Alumno y matricula.
+ Select a.id, a.nombre, s.id, s.nombre From alumno a 
+  left join matricula m on a.id = m.alumnoId
+  left join asignatura s on m.asignaturaId = s.id
+  where a.nombre = 'Luis Abrego'
+GO
+-- aquí vemos la lista de los estudiantes y sus materias asignadas
+ Select a.id, a.nombre, s.id, s.nombre From alumno a 
+  left join matricula m on a.id = m.alumnoId
+  left join asignatura s on m.asignaturaId = s.id
