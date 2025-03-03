@@ -136,6 +136,7 @@ GO
  Select a.id, a.nombre, s.id, s.nombre From alumno a 
   left join matricula m on a.id = m.alumnoId
   left join asignatura s on m.asignaturaId = s.id
+ 
 GO
 
 
@@ -154,4 +155,16 @@ VALUES (1, 'examen', 8, 100, 11);
 -- Deshabilitar el modo IDENTITY_INSERT
 SET IDENTITY_INSERT [dbo].[calificacion] OFF;
 GO	
-		
+	
+-- Guía 12: EndPoint para calificaciones 
+INSERT INTO [dbo].[calificacion]([id],[descripcion],[nota],[porcentaje],[matriculaId]) 
+VALUES(2,'Aprobado',7,100,2);
+INSERT INTO [dbo].[calificacion]([id],[descripcion],[nota],[porcentaje],[matriculaId]) 
+VALUES(3,'Desertó',2,100,1);
+
+
+
+
+
+
+
