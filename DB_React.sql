@@ -136,3 +136,22 @@ GO
  Select a.id, a.nombre, s.id, s.nombre From alumno a 
   left join matricula m on a.id = m.alumnoId
   left join asignatura s on m.asignaturaId = s.id
+GO
+
+
+-- Guía 11: Eliminar Alumno
+
+INSERT INTO [dbo].[calificacion]([id],[descripcion],[nota],[porcentaje],[matriculaId]) 
+VALUES(1,'examen',8,100,11);
+GO
+-- Habilitar el modo IDENTITY_INSERT
+SET IDENTITY_INSERT [dbo].[calificacion] ON;
+
+-- Realizar la inserción
+INSERT INTO [dbo].[calificacion] ([id], [descripcion], [nota], [porcentaje], [matriculaId])
+VALUES (1, 'examen', 8, 100, 11);
+
+-- Deshabilitar el modo IDENTITY_INSERT
+SET IDENTITY_INSERT [dbo].[calificacion] OFF;
+GO	
+		

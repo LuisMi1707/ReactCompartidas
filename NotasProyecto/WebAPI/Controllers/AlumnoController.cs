@@ -39,11 +39,20 @@ namespace WebAPI.Controllers
         }
         #endregion
 
-        #region
+        #region AlumnoMatricula
         [HttpPost("alumno")]
         public bool insertarMatricula([FromBody] Alumno alumno, int idAsignatura)
         {
             return _dao.InsertarMatricula(alumno, idAsignatura);
+        }
+        #endregion
+
+        #region EliminarAlumno
+        [HttpDelete("alumno")]
+
+        public bool eliminarAlumno(int id)
+        {
+            return _dao.eliminarAlumno(id);
         }
         #endregion
     }
